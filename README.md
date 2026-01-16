@@ -226,24 +226,81 @@ Published Content → Public Viewing + Comments + View Tracking
 [![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)]()
 [![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)]()
 
-**🌟 Key Features:**
-- ✅ **Multi-Platform Integration** - Seamless connection with Salla, Zid e-commerce APIs
-- ✅ **Payment Gateway** - Tap Payments integration with subscription management
-- ✅ **Automated Synchronization** - Real-time product and order sync with queue-based processing
-- ✅ **Webhook System** - Real-time updates for orders, inventory, and transactions
-- ✅ **Subscription Management** - Recurring billing and payment scheduling
-- ✅ **Inventory Tracking** - Cross-platform inventory management
-- ✅ **Order Fulfillment** - Automated order processing workflows
-- ✅ **Sales Analytics** - Dashboard with insights and performance metrics
+## 🎯 Project Goals
 
-**💡 Technical Highlights:**
-- Reduced sync failures by **40%** using Redis queue-based processing
-- Handles **10,000+ daily transactions** with 99.9% uptime
-- Built robust webhook system for real-time updates
-- Implemented comprehensive error handling and retry mechanisms
-- Achieved **25% performance improvement** through optimization
+- Design a **clean integration layer** for Salla & Zid
+- Build a **gateway-agnostic payment system**
+- Handle **real-world webhook and sync challenges**
+- Apply **SOLID principles** and event-driven architecture
+- Prepare the system for future platforms and payment providers
+
+## 🌟 Key Features
+
+- ✅ **Multi-Platform Integration**  
+  Unified integration with **Salla** and **Zid** using OAuth-based installation flows and secure token storage per store
+
+- ✅ **Multi-Gateway Payment Architecture**  
+  Implemented **Tap Payments** with a **pluggable payment interface**, designed to support additional gateways (Stripe, PayPal) without refactoring core logic
+
+- ✅ **Subscription Lifecycle Management**  
+  Handles full subscription states:
+  `trial → active → past_due → canceled → expired`,  
+  synchronized via payment and platform webhooks
+
+- ✅ **Event-Driven Synchronization**  
+  Orders, products, inventory, and subscriptions are synced using **queue-based background jobs** instead of blocking requests
+
+- ✅ **Secure Webhook Processing**  
+  Webhook validation (tokens/signatures), idempotent handlers, and retry logic to prevent duplicate or inconsistent data
+
+- ✅ **Cross-Platform Inventory Mapping**  
+  Centralized inventory logic with platform-specific adapters for Salla and Zid
+
+- ✅ **Automated Order Workflows**  
+  Order lifecycle handling: created → paid → fulfilled → completed
+
+- ✅ **Sales & Subscription Analytics**  
+  Internal dashboards for revenue, subscriptions, orders, and platform-level metrics
+
+
+## 💡 Technical Highlights
+
+- Reduced synchronization failures by **~40%** using **Redis-backed queues and retry strategies**
+- Designed a **SOLID-compliant payment abstraction layer**
+- Built **idempotent webhook consumers** to safely handle retries
+- Applied **rate-limit protection and API backoff strategies**
+- Improved performance by **~25%** through caching and query optimization
+- Structured the system to scale with **high webhook and API event volume**
+
+> Metrics are based on local stress testing and simulated workloads, as this is a personal portfolio project.
+
+## 🧠 Architecture Overview
+
+- **Integration Layer**  
+  Platform-specific services (Salla / Zid) implementing shared contracts
+
+- **Payment Layer**  
+  Gateway interface with isolated implementations (Tap, future Stripe/PayPal)
+
+- **Domain Layer**  
+  Subscriptions, plans, orders, and billing logic are isolated from vendors
+
+- **Async Processing**  
+  Queues & jobs for sync, webhooks, and heavy operations
+
+
+## 🛠️ Tech Stack
+
+- **Backend:** Laravel  
+- **Frontend:** React / Inertia.js  
+- **Database:** MySQL  
+- **Caching & Queues:** Redis  
+- **Payments:** Tap Payments  
+- **Integrations:** Salla API, Zid API  
+- **Architecture:** SOLID, event-driven design
 
 **🛠️ Tech Stack:** `Laravel` `React` `MySQL` `Redis` `Queue Jobs` `REST APIs` `Salla API` `Zid API` `Tap Payments`
+**🔗 [View Repository](https://github.com/GeorgeAntwanHosny/ecommerce-integrations-hub) | [Demo Videos](https://drive.google.com/file/d/1B2YmX3mi5T56O_xBs3z717tXTrdExDcn/view?usp=sharing)**
 
 
 ---
@@ -387,53 +444,6 @@ Published Content → Public Viewing + Comments + View Tracking
 </td>
 </tr>
 </table>
-
----
-
-## 🌟 Technical Expertise Breakdown
-
-<div align="center">
-
-```mermaid
-mindmap
-  root((George<br/>Antwan))
-    Full Stack Development
-      Next.js & React
-      Laravel & Symfony
-      TypeScript Mastery
-      RESTful APIs
-      Database Design
-    Real-Time Systems
-      WebSockets
-      Live Chat
-      Notifications
-      Event Broadcasting
-      Queue Processing
-    AI & Innovation
-      Gemini AI Integration
-      Intelligent Content
-      Automation
-      Smart Features
-    Enterprise Solutions
-      Team Management
-      Project Tracking
-      CMS Platforms
-      RBAC Systems
-      Analytics Dashboards
-    E-commerce
-      Multi-Platform Sync
-      Payment Gateways
-      Order Management
-      Inventory Systems
-    Performance & Security
-      Caching (Redis)
-      Query Optimization
-      OAuth & JWT
-      2FA Authentication
-      Rate Limiting
-```
-
-</div>
 
 ---
 
