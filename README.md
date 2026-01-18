@@ -174,7 +174,7 @@ Experienced in modern deployment workflows, ensuring consistent and automated de
 
 **🛠️ Tech Stack:** `Laravel` `PHP` `Passport` `MySQL` `Next.js 15` `React 19` `TypeScript` `Tailwind CSS` `Radix UI` `Axios` `Recharts` `Framer Motion`
 
-**🔗 [View Repository](https://github.com/GeorgeAntwanHosny/team-collaboration-project-management-frontend) | [Screenshots](https://drive.google.com/drive/folders/18Sds5j33PASzWo94ibVRS850B6VI67JZ?usp=sharing)**
+**🔗 [View Repository](https://github.com/GeorgeAntwanHosny/team-collaboration-project-management) | [Screenshots](https://drive.google.com/drive/folders/18Sds5j33PASzWo94ibVRS850B6VI67JZ?usp=sharing)**
 
 ---
 
